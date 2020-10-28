@@ -1,0 +1,19 @@
+﻿  Building Custom Rule C:/Новая папка/Stack/samples/CMakeLists.txt
+  CMake is re-running because C:/╨Э╨╛╨▓╨░╤П ╨┐╨░╨┐╨║╨░/Stack/build/samples/CMakeFiles/generate.stamp is out-of-date.
+    the file 'C:/╨Э╨╛╨▓╨░╤П ╨┐╨░╨┐╨║╨░/Stack/samples/CMakeLists.txt'
+    is newer than 'C:/╨Э╨╛╨▓╨░╤П ╨┐╨░╨┐╨║╨░/Stack/build/samples/CMakeFiles/generate.stamp.depend'
+    result='0'
+  -- Selecting Windows SDK version 10.0.18362.0 to target Windows 10.0.19041.
+  CMake Error at CMakeLists.txt:27 (add_subdirectory):
+    add_subdirectory given source "samples" which is not an existing directory.
+  
+  
+  -- 
+  -- General configuration for stack
+  -- ======================================
+  -- 
+  --    Configuration: Release
+  -- 
+  -- Configuring incomplete, errors occurred!
+  See also "C:/╨Э╨╛╨▓╨░╤П ╨┐╨░╨┐╨║╨░/Stack/build/CMakeFiles/CMakeOutput.log".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(231,5): error MSB6006: "cmd.exe" завершилась с кодом 1.

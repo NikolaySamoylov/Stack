@@ -1,0 +1,6 @@
+C:/Новая папка/Stack/build/CMakeFiles/ALL_BUILD.dir
+C:/Новая папка/Stack/build/CMakeFiles/ZERO_CHECK.dir
+C:/Новая папка/Stack/build/include/CMakeFiles/stack.dir
+C:/Новая папка/Stack/build/samples/CMakeFiles/sample_matrix.dir
+C:/Новая папка/Stack/build/gtest/CMakeFiles/gtest.dir
+C:/Новая папка/Stack/build/test/CMakeFiles/test_stack.dir
