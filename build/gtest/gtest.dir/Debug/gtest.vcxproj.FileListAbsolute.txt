@@ -1,2 +1,0 @@
-C:\Новая папка\Stack\build\lib\Debug\gtest.pdb
-C:\Новая папка\Stack\build\gtest\gtest.dir\Debug\gtest.pdb

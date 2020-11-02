@@ -37,8 +37,6 @@ public:
 	// конструктор копирования
 	Vector(const Vector& v)
 	{
-		if (data != NULL)
-			delete[] data;
 		data = new T[v.vsize];
 		size = v.vsize;
 		vcapacity = v.vcapacity;
@@ -100,20 +98,53 @@ public:
 		else throw "Impossible to pop back!";
 	}
 
+	// вставка элемента в вектор
+	void insert(const T& Elem, const size_t index)
+	{
+		if ((index >= 0) && (index < vsize))
+			if (vsize + 1 > vcapacity)
+			{
+				vcapacity = 1.3 * vsize + 1;
+				T* b = new T[vcapacity];
+				size_t i;
+				for (size_t i = 0; i < index; i++)
+					b[i] = data[i];
+				b[index] = Elem;
+				for (i = index; i < vsize; i++)
+					b[i + 1] = data[i];
+				if (data != NULL)
+					delete[] data;
+				data = b;
+				vsize++;
+			}
+			else
+			{
+				for (size_t i = vsize; i >= index; i--)
+					data[i] = data[i - 1];
+				data[index] = Elem;
+				vsize++;
+			}
+		else throw "Incorrect index!";
+	}
+
+	// удаление элемента вектора
+	void erase(const size_t index)
+	{
+		if ((index >= 0) && (index < vsize))
+		{
+			for (size_t i = index + 1; i < vsize; i++)
+				data[i - 1] = data[i];
+			vsize--;
+		}
+		else throw "Incorrect index!";
+	}
+
 	// вставка элемента в начало вектора
 	void push_front(const T& Elem)
 	{
 		if (vsize + 1 <= MAX_VECTOR_SIZE)
 		{
-			T* b = new T[vsize + 1];
-			for (size_t i = 1; i < vsize + 1; i++)
-				b[i] = data[i - 1];
-			b[0] = Elem;
-			if (data != NULL)
-				delete[] data;
-			data = b;
-			vsize++;
-			vcapacity++;
+			insert(Elem, 0);
 		}
 		else throw "Impossible to push front!";
 	}
@@ -123,9 +154,7 @@ public:
 	{
 		if (vsize != 0)
 		{
-			for (size_t i = 1; i < vsize; i++)
-				data[i - 1] = data[i];
-			vsize--;
+			erase(0);
 		}
 		else throw "Impossible to pop front!";
 	}
@@ -154,47 +183,6 @@ public:
 			vcapacity = n;
 		}
 		else throw "Too big size of vector!";
-	}
-
-	// вставка элемента в вектор
-	void insert(const T& Elem, const size_t index)
-	{
-		if ((index >= 0) && (index < vsize))
-		{
-			T* b = new T[vsize + 1];
-			size_t i;
-			for (i = 0; i < index; i++)
-				b[i] = data[i];
-			b[index] = Elem;
-			for (i = index; i < vsize; i++)
-				b[i + 1] = data[i];
-			if (data != NULL)
-				delete[] data;
-			data = b;
-			vsize++;
-			vcapacity++;
-		}
-		else throw "Incorrect index!";
-	}
-
-	// удаление элемента вектора
-	void erase(const size_t index)
-	{
-		if ((index >= 0) && (index < vsize))
-		{
-			T* b = new T[vsize - 1];
-			size_t i;
-			for (i = 0; i < index; i++)
-				b[i] = data[i];
-			for (i = index + 1; i < vsize; i++)
-				b[i - 1] = data[i];
-			if (data != NULL)
-				delete[] data;
-			data = b;
-			vsize--;
-			vcapacity--;
-		}
-		else throw "Incorrect index!";
 	}
 
 	// доступ к элементу вектора
